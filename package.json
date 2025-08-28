@@ -1,0 +1,49 @@
+{
+  "name": "ai-literature-review-generator",
+  "version": "0.1.0",
+  "description": "AI-powered literature review generator with theme discovery and citation bundles",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "api"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=frontend\" \"npm run start:dev --workspace=api\"",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=api",
+    "start": "concurrently \"npm run start --workspace=frontend\" \"npm run start:prod --workspace=api\"",
+    "lint": "npm run lint --workspace=frontend && npm run lint --workspace=api",
+    "test": "npm run test --workspace=frontend && npm run test --workspace=api",
+    "type-check": "npm run type-check --workspace=frontend && npm run type-check --workspace=api",
+    "clean": "rm -rf node_modules frontend/node_modules api/node_modules && npm install",
+    "install:all": "npm install && npm install --workspace=frontend && npm install --workspace=api",
+    "workers:install": "cd workers && pip install -e .",
+    "workers:test": "cd workers && python -m pytest",
+    "workers:lint": "cd workers && python -m ruff check . && python -m mypy .",
+    "workers:format": "cd workers && python -m black . && python -m isort ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/ai-literature-review-generator.git"
+  },
+  "keywords": [
+    "ai",
+    "literature-review",
+    "nlp",
+    "machine-learning",
+    "academic-research",
+    "citation-analysis",
+    "theme-discovery"
+  ],
+  "author": "AI Literature Review Team",
+  "license": "MIT"
+}

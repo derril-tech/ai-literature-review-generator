@@ -1,0 +1,56 @@
+# AI Literature Review Generator - Code Ownership
+# This file defines who owns what code for review purposes
+
+# Global owners - PM/Tech Lead
+* @owner-pm @owner-tech-lead
+
+# Frontend (Next.js)
+frontend/ @owner-frontend @owner-design
+frontend/src/components/ @owner-frontend @owner-design
+frontend/src/pages/ @owner-frontend @owner-design
+frontend/src/lib/ @owner-frontend
+
+# API (NestJS)
+api/ @owner-backend @owner-api
+api/src/ @owner-backend @owner-api
+api/src/controllers/ @owner-backend @owner-api
+api/src/services/ @owner-backend @owner-api
+api/src/middleware/ @owner-backend @owner-api
+
+# Workers (Python/FastAPI)
+workers/ @owner-ml @owner-backend
+workers/pdf-worker/ @owner-ml @owner-data
+workers/meta-worker/ @owner-ml @owner-data
+workers/embed-worker/ @owner-ml
+workers/cluster-worker/ @owner-ml
+workers/label-worker/ @owner-ml
+workers/summary-worker/ @owner-ml
+workers/rag-worker/ @owner-ml
+workers/matrix-worker/ @owner-ml
+workers/bundle-worker/ @owner-ml
+workers/export-worker/ @owner-ml
+
+# Infrastructure
+infra/ @owner-sre @owner-devops
+infra/docker/ @owner-sre @owner-devops
+infra/k8s/ @owner-sre @owner-devops
+infra/terraform/ @owner-sre @owner-devops
+
+# Documentation
+docs/ @owner-pm @owner-tech-lead
+*.md @owner-pm @owner-tech-lead
+
+# CI/CD
+.github/ @owner-sre @owner-devops
+.github/workflows/ @owner-sre @owner-devops
+
+# Package files
+package.json @owner-frontend @owner-backend
+requirements.txt @owner-ml @owner-backend
+pyproject.toml @owner-ml @owner-backend
+Dockerfile* @owner-sre @owner-devops
+docker-compose* @owner-sre @owner-devops
+
+# Database
+migrations/ @owner-backend @owner-data
+schema/ @owner-backend @owner-data

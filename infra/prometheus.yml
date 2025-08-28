@@ -1,0 +1,56 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'api'
+    static_configs:
+      - targets: ['api:3000']
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+
+  - job_name: 'frontend'
+    static_configs:
+      - targets: ['frontend:3001']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  - job_name: 'workers'
+    static_configs:
+      - targets: 
+        - 'pdf-worker:8000'
+        - 'meta-worker:8001'
+        - 'embed-worker:8002'
+        - 'cluster-worker:8003'
+        - 'label-worker:8004'
+        - 'summary-worker:8005'
+        - 'bundle-worker:8006'
+        - 'export-worker:8007'
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+
+  - job_name: 'nats'
+    static_configs:
+      - targets: ['nats:4222']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
